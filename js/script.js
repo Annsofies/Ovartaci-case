@@ -74,7 +74,7 @@ const questions = [
       "Fordi væggene var for små",
     ],
     correctIndex: 0,
-    image: "img/dukke.png",
+    image: "img/hængedukke.png",
     feedback:
       "Derfor fandt Ovartaci en kreativ løsning ved at lave bevægelige papirdukker, som kunne hænges op i rummet.",
     reflection: "Kan begrænsninger nogle gange føre til nye kreative idéer?",
@@ -98,6 +98,7 @@ const questions = [
     answers: ["En helikopter", "Et slot", "En ubåd"],
     correctIndex: 0,
     image: "img/ovi-og-figur.png",
+    feedbackImage: "img/helikopter.png",
     feedback:
       "Ovartaci byggede en helikopter i fuld størrelse, men den kom aldrig til at flyve. Projektet viser hans store fantasi og fascination af teknik og frihed.",
     reflection: "Hvad tror du drømmen om at flyve symboliserede for Ovartaci?",
@@ -108,7 +109,8 @@ const questions = [
     question: "Hvad blev et vigtigt symbol på frihed for Ovartaci?",
     answers: ["En cykel", "Et tog", "En båd"],
     correctIndex: 0,
-    image: "img/hospital.png",
+    image: "img/værk.png",
+    feedbackImage: "img/cykel.png",
     feedback:
       "At kunne cykle rundt gav Ovartaci en følelse af frihed og selvstændighed.",
     reflection: "Hvorfor tror du bevægelse kan føles som frihed?",
@@ -136,7 +138,7 @@ const questions = [
     question: "Hvad ønskede Ovartaci især at udtrykke gennem sin kunst?",
     answers: ["At blive berømt", "At male realistisk", "Sit indre univers"],
     correctIndex: 2,
-    image: "img/ovi-og-figur.png",
+    image: "img/univers.png",
     feedback:
       "Kunsten blev en måde for Ovartaci at udtrykke tanker, følelser, fantasi og identitet på.",
     reflection: "Hvad kan kunst fortælle, som ord nogle gange ikke kan?",
@@ -201,7 +203,8 @@ function renderQuestion() {
 
   questionText.textContent = currentQuestion.question;
   questionImage.src = currentQuestion.image;
-  feedbackImage.src = currentQuestion.image;
+feedbackImage.src =
+  currentQuestion.feedbackImage || currentQuestion.image;
 
   answersContainer.innerHTML = "";
 
