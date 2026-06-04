@@ -1,6 +1,4 @@
-/* ============================= */
-/* RESET OG FARVER */
-/* ============================= */
+/* Grundopsætning og farver */
 
 * {
   margin: 0;
@@ -28,9 +26,7 @@ body {
   overflow: hidden;
 }
 
-/* ============================= */
-/* SKÆRME */
-/* ============================= */
+/* Fælles layout til screens */
 
 .screen {
   display: none;
@@ -57,9 +53,8 @@ body {
   }
 }
 
-/* ============================= */
-/* STARTSIDE */
-/* ============================= */
+/* Startside */
+
 
 .hero-screen {
   justify-content: flex-end;
@@ -154,9 +149,7 @@ body {
   font-weight: bold;
 }
 
-/* ============================= */
-/* KNAPPER */
-/* ============================= */
+/* Knapper */
 
 .primary-btn,
 .secondary-btn {
@@ -210,9 +203,7 @@ body {
   transform: scale(0.96);
 }
 
-/* ============================= */
-/* ALIAS SIDE */
-/* ============================= */
+/* Alias side */
 
 .alias-screen {
   background-image: url("../img/alias.png");
@@ -287,9 +278,7 @@ body {
   font-weight: bold;
 }
 
-/* ============================= */
-/* KEYBOARD */
-/* ============================= */
+/* Keyboard */
 
 .keyboard {
   position: fixed;
@@ -338,10 +327,7 @@ body {
   box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* ============================= */
-/* QUIZ / FEEDBACK / SCORE */
-/* ============================= */
-
+/* Layout til quiz, feedback og scoreboard */
 .quiz-screen,
 .feedback-screen,
 .score-screen {
@@ -371,9 +357,9 @@ body {
   pointer-events: none;
 }
 
-/* ============================= */
-/* TOPBAR */
-/* ============================= */
+
+/*  Progressbar */
+
 
 .topbar {
   position: relative;
@@ -409,9 +395,7 @@ body {
   white-space: nowrap;
 }
 
-/* ============================= */
 /* QUIZ */
-/* ============================= */
 
 .quiz-layout {
   position: relative;
@@ -515,9 +499,7 @@ body {
   box-shadow: none;
 }
 
-/* ============================= */
-/* FEEDBACK */
-/* ============================= */
+/* Feedback efter hvert spørgsmål */
 
 .feedback-layout {
   position: relative;
@@ -599,9 +581,7 @@ body {
   animation: feedbackShake 0.45s ease both;
 }
 
-/* ============================= */
-/* REFLEKSION */
-/* ============================= */
+/* Refleksion efter udvalgte spørgsmål */
 
 .reflection-card {
   margin-top: 48px;
@@ -693,9 +673,7 @@ body {
     transform: translateY(0);
   }
 }
-/* ============================= */
-/* NÆSTE-KNAP */
-/* ============================= */
+/* Pil til næste spørgsmål */
 
 .next-btn {
   width: 100px;
@@ -717,9 +695,8 @@ body {
   bottom: 42px;
   z-index: 30;
 }
-/* ============================= */
-/* SCOREBOARD */
-/* ============================= */
+
+/* Scoreboard */
 
 .score-screen {
   justify-content: center;
@@ -776,7 +753,7 @@ body {
   color: var(--purple);
 }
 
-/* SCORELISTE */
+/* Scorelisten med brugernes resultater */
 
 .score-list {
   list-style: none;
@@ -811,9 +788,8 @@ body {
 
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
-/* ============================= */
-/* AFSLUTTENDE REFLEKSION */
-/* ============================= */
+
+/* Afsluttende refleksion nederst på scoreboardet */
 
 .ending-reflection-card {
   margin: 10px 0 14px;
@@ -872,7 +848,7 @@ body {
   margin: 0;
 }
 
-/* KNAP */
+/* Knap til at starte quizzen forfra */
 
 .score-card .primary-btn {
   align-self: center;
@@ -884,9 +860,7 @@ body {
   font-size: 26px;
 }
 
-/* ============================= */
-/* ANIMATIONER */
-/* ============================= */
+/* Animationer brugt rundt i quizzen */
 
 @keyframes answerPop {
   0% {
@@ -992,9 +966,7 @@ body {
   }
 }
 
-/* ============================= */
-/* TABLET / MOBIL */
-/* ============================= */
+/* Tilpasning til mindre skærme */
 
 @media (max-width: 950px) {
   body {
@@ -1058,18 +1030,8 @@ body {
   }
 }
 
-/* ============================= */
-/* TILGÆNGELIGHED */
-/* ============================= */
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
+/* Tilpasser alias-siden når skærmen ikke er så høj */
 
 @media (max-height: 850px) {
   .alias-screen {
