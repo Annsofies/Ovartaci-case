@@ -609,7 +609,7 @@ body {
   opacity: 0;
   transform: translateY(18px);
   animation: reflectionEnter 1.9s ease forwards;
-  animation-delay: 2, 6s;
+  animation-delay: 2.6s;
 }
 
 .reflection-card::before {
