@@ -45,9 +45,13 @@ Vores løsning består af en quizbaseret prototype, som skal engagere unge museu
 ## 4. W3C-validering
 Projektets HTML- og CSS-filer er begge valideret. Validering blev brugt løbende for at bla. mindske fejl.
 
-#### index.html <p>valideret igennem: W3C HTML</p> Validator
+#### index.html <p>valideret igennem: W3C HTML Validator</p> 
+Vi havde en enkelt fejl i vores html - hvor vi havde glemt at skrive ```src```. Denne fejl er nu rettet, og der er ikke flere error beskeder tilbage.
+![Validering af html](/img/vali-html.png)
     
 #### style.css <p>valideret igennem: W3C CSS Validator </p>
+Vi havde også en enkelt fejl i vores css - hvor vi havde kommet til at sætte et ```,``` istedet for et ```.```. Denne fejl er nu rettet, og vi har ikke flere error beskeder tilbage.
+![Validering af css](/img/vali-css.png)
 
 <br></br>
 
@@ -89,6 +93,7 @@ Vi har valgt at opdele ```js``` i 2 filer, hvor keyboardet har fået sin egen si
 | ovi.png          | Billede                        |
 | scorreboard.png  | Billede                        |
 
+    ops. der er kommet en del flere billeder til, men dette er blot for at vise strukturen.
 <br></br>
 
 ### Kommentarer i koden
@@ -125,38 +130,52 @@ For at vise vores datastruktur har vi valgt at vise et array fra vores ```script
 Hvert objekt indeholder spørgsmål, svarmuligheder, korrekt svar, billede og feedback.  
 Datastrukturen gør det nemt at styre quizzen dynamisk i JavaScript. 
 
-(under ser man koden for de første 3 ud af 10)  
+(under ser man koden for de første 3 ud af 11)  
 
-``` const questions = [
+``` 
+// Alle quiz spørgsmål, svar, billeder, feedback og reflektion
+const questions = [
   {
-    question: "Hvad betyder navnet ‘Ovartaci’?",
+    chapter: "Identitet",
+    question: "Hvad betyder navnet “Ovartaci”?",
     answers: ["Overlæge", "Overtosse", "Overkunstner"],
     correctIndex: 1,
-    image:
-      "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=900&auto=format&fit=crop",
+    image: "img/ovi-hehe.png",
+
+    // Feedback efter spørgsmålet
     feedback:
-      "Navnet Ovartaci forbindes med ordet ‘overtosse’ og indgår som en del af kunstnerens særlige identitet og fortælling.",
+      "Navnet Ovartaci forbindes med ordet “overtosse” og blev en vigtig del af kunstnerens identitet og særlige univers.",
+
+    // Lille refleksion til brugeren
+    reflection: "Hvordan tror du et navn kan påvirke et menneskes identitet?",
   },
+
   {
-    question: "Hvor mange år var Ovartaci indlagt?",
-    answers: ["12 år", "24 år", "56 år"],
-    correctIndex: 2,
-    image:
-      "https://images.unsplash.com/photo-1564399580075-5dfe19c205f3?q=80&w=900&auto=format&fit=crop",
-    feedback:
-      "Ovartaci tilbragte størstedelen af sit liv på Psykiatrisk Hospital i Risskov.",
-  },
-  {
+    chapter: "Indre univers",
     question: "Hvilket tema fylder meget i Ovartacis kunst?",
     answers: ["Sport", "Identitet", "Politik"],
     correctIndex: 1,
-    image:
-      "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=900&auto=format&fit=crop",
+    image: "img/identitet.png",
+
     feedback:
-      "Identitet, fantasi og menneskesind er centrale temaer i Ovartacis univers.",
+      "Identitet, fantasi og menneskesind er centrale temaer i Ovartacis kunst og fortællinger.",
   },
-]; 
-```
+
+  {
+    chapter: "Stedet",
+    question: "Hvor skabte Ovartaci størstedelen af sin kunst?",
+    answers: [
+      "På kunstakademiet i København",
+      "På Psykiatrisk Hospital i Risskov",
+      "På et museum i Paris",
+    ],
+    correctIndex: 1,
+    image: "img/risskovhospital.png",
+
+    feedback:
+      "På Psykiatrisk Hospital i Risskov skabte Ovartaci størstedelen af sine værker og udviklede sit særlige kunstneriske univers.",
+  },
+  ```
 
 
 <br></br>
@@ -231,17 +250,45 @@ Quizzen giver dynamisk feedback baseret på brugerens svar.
 Feedbacken vises på en Korrekt eller Forkert side efter hver spørgsmål - så man hele tiden for feedback på hvordan man klare den. 
 
 ```
+// Håndterer svaret
 function handleAnswer(selectedIndex) {
   const currentQuestion = questions[currentQuestionIndex];
+
   const isCorrect = selectedIndex === currentQuestion.correctIndex;
 
-  if (isCorrect) score += 1;
+  // Giver point hvis svaret er korrekt
+  if (isCorrect) {
+    score += 1;
+  }
 
+  // Tilføjer styling til feedback screen
   screens.feedback.classList.toggle("correct", isCorrect);
+
   screens.feedback.classList.toggle("wrong", !isCorrect);
+
+  // Feedback titel
   feedbackTitle.textContent = isCorrect ? "Korrekt!" : "Forkert!";
+
+  // Forklaring
   feedbackText.textContent = currentQuestion.feedback;
-  correctAnswerText.textContent = `Rigtigt svar: ${currentQuestion.answers[currentQuestion.correctIndex]}`;
+
+  // Viser det rigtige svar
+  correctAnswerText.textContent = `Rigtigt svar: ${
+    currentQuestion.answers[currentQuestion.correctIndex]
+  }`;
+
+  const reflectionCard = document.querySelector(".reflection-card");
+
+  // Viser refleksion hvis spørgsmålet har en
+  if (currentQuestion.reflection) {
+    reflectionCard.style.display = "block";
+
+    reflectionText.textContent = currentQuestion.reflection;
+  } else {
+    reflectionCard.style.display = "none";
+  }
+
+  // Vis feedback screen
   showScreen("feedback");
 }
 ```
