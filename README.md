@@ -14,15 +14,15 @@
 11. Dynamisk feedback
 12. GitHub-samarbejde
 13. Refleksion 
-14. Konklution
+14. Konklusion
 
 <br></br>
 
 ## 1. Projektbeskrivelse
-Dette projekts handler om at udvikle en interaktiv digital museumsoplevelse til Museum Ovartaci. 
+Dette projekt handler om at udvikle en interaktiv digital museumsoplevelse til Museum Ovartaci. 
 Formålet med løsningen er at skabe mere engagement og aktiv deltagelse blandt museumsbesøgende gennem en digital quizoplevelse i det fysiske museumsrum.
 
-Vores løsningen består af en quizbaseret prototype, som skal engagere unge museumsbesøgende gennem aktiv deltagelse, læring og interaktion i det fysiske museumsrum. Brugeren guides gennem forskellige spørgsmål og får feedback undervejs. Brugeren skal blandt andet indtaste et alias, besvare quizspørgsmål og modtage dynamisk feedback baseret på deres valg.
+Vores løsning består af en quizbaseret prototype, som skal engagere unge museumsbesøgende gennem aktiv deltagelse, læring og interaktion i det fysiske museumsrum. Brugeren guides gennem forskellige spørgsmål og får feedback undervejs. Brugeren skal blandt andet indtaste et alias, besvare quizspørgsmål og modtage dynamisk feedback baseret på deres valg.
 
 
 ### 2. Projektet er udviklet i:
@@ -75,7 +75,7 @@ Vi har valgt at opdele ```js``` i 2 filer, hvor keyboardet har fået sin egen si
 |                  |                                |  
 | ```js``` mappe, indeholder 2 js filer          |   |
 | ```script.js```  | ```script.js``` styrer hele quiz  funktionaliteten og er vores primær quizlogik. Den indeholder spørgsmålene, håndterer navigation mellem skærme og registrerer brugerens svar og score. <br></br> Derudover bruges ```script.js``` til at opdatere progress bar, vise feedback, gemme og hente data fra localStorage samt generere scoreboardet dynamisk.                |
-| ```alias.js```   | ```alias.js``` styrer alias-siden og tastaturert. Den håndterer indtastning af tekst i inputfeltet, inklusive bogstaver, mellemrum og backspace. Derudover kan brugeren skifte mellem store og små bogstaver med shift-knappen. <br></br> Filen gør det muligt at taste på et bogstav og så kommer det frem i indputfeltet - da tasteturert skal være på en touchskærm og ikke skal bruges som et almindeligt tastatur. <br></br>              |
+| ```alias.js```   | ```alias.js``` styrer alias-siden og tastaturet. Den håndterer indtastning af tekst i inputfeltet, inklusive bogstaver, mellemrum og backspace. Derudover kan brugeren skifte mellem store og små bogstaver med shift-knappen. <br></br> Filen gør det muligt at taste på et bogstav og så kommer det frem i inputfeltet - da tasteturet skal være på en touchskærm og ikke skal bruges som et almindeligt tastatur. <br></br>              |
 |                  |                                |
 | ```img``` mappe som indeholder alle vores billeder       |              |
 | alias.png        | Billede                        |
