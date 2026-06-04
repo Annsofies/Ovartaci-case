@@ -3,48 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Titel i browser-fanen -->
     <title>Hvor godt kender du Ovartaci?</title>
+
+    <!-- CSS stylesheet -->
     <link rel="stylesheet" href="css/style.css" />
 
+    <!-- JavaScript filer -->
     <script src="js/script.js" defer></script>
     <script src="js/alias.js" defer></script>
   </head>
+
   <body>
     <main id="app" class="app">
+
       <section
         id="startScreen"
         class="screen hero-screen active"
         aria-labelledby="heroTitle"
       >
-        <!-- Baggrundsvideo -->
+
+        <!-- Video som baggrund på startsiden -->
         <video class="background-video" autoplay muted playsinline>
           <source src="video/ovi-video.mp4" type="video/mp4" />
         </video>
 
+        <!-- Indhold ovenpå videoen -->
         <div class="hero-overlay">
           <div class="hero-card">
+
+            <!-- Titel på oplevelsen -->
             <h1 id="heroTitle">HVOR GODT KENDER DU OVARTACI?</h1>
+
+            <!-- Kort intro til quizzen -->
             <p>
               Træd ind i Ovartacis univers. Svar på spørgsmål og opdag
               fortællinger om identitet, fantasi og forvandling.
             </p>
 
-            <button class="primary-btn" id="startBtn">Start oplevelsen</button>
+            <!-- Sender brugeren videre til alias-siden -->
+            <button class="primary-btn" id="startBtn">
+              Start oplevelsen
+            </button>
           </div>
         </div>
       </section>
+
+      <!-- Brugeren skriver navn til scoreboardet -->
       <section
         id="aliasScreen"
         class="screen alias-screen"
         aria-labelledby="aliasTitle"
       >
         <div class="content-card">
+
+          <!-- Lille intro tekst -->
           <p class="overtitel">Før du træder ind</p>
+
+          <!-- Overskrift -->
           <h2 id="aliasTitle">Indtast dit navn</h2>
+
+          <!-- Forklaring til brugeren -->
           <p id="aliasText">
             Dit alias bruges kun til scoreboardet på denne skærm.
           </p>
 
+          <!-- readonly bruges fordi brugeren skriver via touch-keyboard -->
           <input
             id="nameInput"
             type="text"
@@ -52,10 +77,14 @@
             placeholder="Skriv dit navn"
             readonly
           />
+
+          <!-- Fejlbesked hvis feltet er tomt -->
           <p id="nameError" class="error" aria-live="polite"></p>
 
-          <!-- KEYBOARD -->
+          <!-- Touch keyboard til touchskærmen -->
           <div class="keyboard">
+
+            <!-- Øverste række -->
             <div class="keyboard-row">
               <button type="button" class="key">Q</button>
               <button type="button" class="key">W</button>
@@ -69,6 +98,7 @@
               <button type="button" class="key">P</button>
             </div>
 
+            <!-- Midterste række -->
             <div class="keyboard-row">
               <button type="button" class="key">A</button>
               <button type="button" class="key">S</button>
@@ -81,7 +111,10 @@
               <button type="button" class="key">L</button>
             </div>
 
+            <!-- Nederste række -->
             <div class="keyboard-row">
+
+              <!-- Shift skifter mellem store og små bogstaver -->
               <button type="button" id="shift">Shift</button>
 
               <button type="button" class="key">Z</button>
@@ -92,33 +125,50 @@
               <button type="button" class="key">N</button>
               <button type="button" class="key">M</button>
 
+              <!-- Sletter sidste bogstav -->
               <button type="button" id="backspace">⌫</button>
             </div>
 
+            <!-- Navigation og mellemrum -->
             <div class="keyboard-row">
+
+              <!-- Flytter cursor til venstre -->
               <button type="button" id="leftArrow">←</button>
+
+              <!-- Mellemrum -->
               <button type="button" id="space">Mellemrum</button>
+
+              <!-- Flytter cursor til højre -->
               <button type="button" id="rightArrow">→</button>
             </div>
           </div>
 
-          <button class="primary-btn" id="saveNameBtn">Start quiz</button>
+          <!-- Gemmer navn og starter quizzen -->
+          <button class="primary-btn" id="saveNameBtn">
+            Start quiz
+          </button>
         </div>
       </section>
 
+      <!-- Selve quizzen -->
       <section
         id="quizScreen"
         class="screen quiz-screen"
         aria-labelledby="questionTitle"
       >
+
+        <!-- Progressbar og spørgsmålsnummer -->
         <header class="topbar">
           <div class="progress-wrap" aria-label="Quiz fremgang">
             <div id="progressBar" class="progress-bar"></div>
           </div>
+
           <p id="questionCounter">Spørgsmål 1/11</p>
         </header>
 
         <div class="quiz-layout">
+
+          <!-- Billede til spørgsmålet -->
           <figure class="image-panel">
             <img
               id="questionImage"
@@ -126,11 +176,19 @@
               alt="Billede relateret til spørgsmålet"
             />
           </figure>
+
+          <!-- Spørgsmål og svar -->
           <article class="question-panel">
+
+            <!-- JavaScript indsætter spørgsmålet her -->
             <h2 id="questionText"></h2>
+
             <p id="questionTitle">Vælg det rigtige udsagn</p>
+
+            <!-- Svarmuligheder bliver lavet dynamisk -->
             <div id="answers" class="answers"></div>
 
+            <!-- Bekræfter brugerens svar -->
             <button
               id="submitAnswerBtn"
               class="next-btn submit-btn"
@@ -144,36 +202,53 @@
         </div>
       </section>
 
+      <!-- Feedback side efter hvert spørgsmål -->
       <section
         id="feedbackScreen"
         class="screen feedback-screen"
         aria-labelledby="feedbackTitle"
       >
+
+        <!-- Progressbar -->
         <header class="topbar">
           <div class="progress-wrap">
             <div id="feedbackProgressBar" class="progress-bar"></div>
           </div>
+
           <p id="feedbackCounter"></p>
         </header>
+
         <div class="feedback-layout">
           <div>
+
+            <!-- Viser om svaret var rigtigt eller forkert -->
             <h2 id="feedbackTitle"></h2>
 
+            <!-- Viser det rigtige svar -->
             <p id="correctAnswerText" class="correct-answer"></p>
 
+            <!-- Forklaring til spørgsmålet -->
             <p id="feedbackText"></p>
 
+            <!-- Lille refleksion efter spørgsmålet -->
             <div class="reflection-card">
-              <span class="reflection-label"> REFLEKSION </span>
 
+              <span class="reflection-label">
+                REFLEKSION
+              </span>
+
+              <!-- Refleksionstekst indsættes via JavaScript -->
               <p id="reflectionText" class="reflection-text"></p>
             </div>
           </div>
 
+          <!-- Feedback billede -->
           <figure class="feedback-image-wrap">
             <img id="feedbackImage" src="" alt="Feedback billede" />
           </figure>
         </div>
+
+        <!-- Går videre til næste spørgsmål -->
         <button
           class="next-btn"
           id="nextBtn"
@@ -183,38 +258,54 @@
         </button>
       </section>
 
+      <!-- Scoreboard og afslutning -->
       <section
         id="scoreScreen"
         class="screen score-screen"
         aria-labelledby="scoreTitle"
       >
         <div class="score-card">
+
+          <!-- Lille introtekst -->
           <p class="overtitel">Din rejse er slut</p>
+
+          <!-- Overskrift -->
           <h2 id="scoreTitle">Scoreboard</h2>
+
+          <!-- Viser brugerens score -->
           <p id="finalScore"></p>
+
+          <!-- Liste med scores fra localStorage -->
           <ol id="scoreList" class="score-list"></ol>
-      
 
-<div class="ending-reflection-card">
-  <span class="reflection-label">
-    EN SIDSTE TANKE
-  </span>
+          <!-- Afsluttende refleksion -->
+          <div class="ending-reflection-card">
 
-  <div class="reflection-inner">
-    <div class="reflection-line"></div>
+            <span class="reflection-label">
+              EN SIDSTE TANKE
+            </span>
 
-    <div>
-      <h3>
-        Nu kender du Ovartaci lidt bedre — men kender du egentlig dig selv?
-      </h3>
+            <div class="reflection-inner">
 
-      <p>
-        Tak fordi du udforskede Ovartacis univers.
-      </p>
-    </div>
-  </div>
-</div>
-          <button class="primary-btn" id="restartBtn">Prøv igen</button>
+              <!-- Dekorativ linje -->
+              <div class="reflection-line"></div>
+
+              <div>
+                <h3>
+                  Nu kender du Ovartaci lidt bedre — men kender du egentlig dig selv?
+                </h3>
+
+                <p>
+                  Tak fordi du udforskede Ovartacis univers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Starter quizzen forfra -->
+          <button class="primary-btn" id="restartBtn">
+            Prøv igen
+          </button>
         </div>
       </section>
     </main>
