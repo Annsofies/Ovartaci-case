@@ -55,7 +55,6 @@ body {
 
 /* Startside */
 
-
 .hero-screen {
   justify-content: flex-end;
   align-items: center;
@@ -357,9 +356,7 @@ body {
   pointer-events: none;
 }
 
-
 /*  Progressbar */
-
 
 .topbar {
   position: relative;
@@ -608,8 +605,8 @@ body {
 
   opacity: 0;
   transform: translateY(18px);
-  animation: reflectionEnter 1.9s ease forwards;
-  animation-delay: 2.6s;
+  animation: reflectionEnter 1.4s ease forwards;
+  animation-delay: 0.8s;
 }
 
 .reflection-card::before {
@@ -1029,7 +1026,6 @@ body {
     font-size: 18px;
   }
 }
-
 
 /* Tilpasser alias-siden når skærmen ikke er så høj */
 
