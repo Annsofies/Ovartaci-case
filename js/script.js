@@ -11,6 +11,15 @@ const questions = [
       "Navnet Ovartaci forbindes med ordet “overtosse” og blev en vigtig del af kunstnerens identitet og særlige univers.",
     reflection: "Hvordan tror du et navn kan påvirke et menneskes identitet?",
   },
+  {
+    chapter: "Indre univers",
+    question: "Hvilket tema fylder meget i Ovartacis kunst?",
+    answers: ["Sport", "Identitet", "Politik"],
+    correctIndex: 1,
+    image: "img/identitet.png",
+    feedback:
+      "Identitet, fantasi og menneskesind er centrale temaer i Ovartacis kunst og fortællinger.",
+  },
 
   {
     chapter: "Stedet",
@@ -24,7 +33,6 @@ const questions = [
     image: "img/risskovhospital.png",
     feedback:
       "På Psykiatrisk Hospital i Risskov skabte Ovartaci størstedelen af sine værker og udviklede sit særlige kunstneriske univers.",
-    reflection: "Hvordan tror du omgivelser påvirker et menneskes kreativitet?",
   },
 
   {
@@ -49,19 +57,6 @@ const questions = [
     image: "img/ovi-smile.png",
     feedback:
       "Før han blev kendt som Ovartaci, arbejdede Louis Marcussen med maling og dekoration som bygningsmaler.",
-    reflection:
-      "Hvordan kan tidligere erfaringer påvirke den kunst, man skaber?",
-  },
-
-  {
-    chapter: "Indre univers",
-    question: "Hvilket tema fylder meget i Ovartacis kunst?",
-    answers: ["Sport", "Identitet", "Politik"],
-    correctIndex: 1,
-    image: "img/identitet.png",
-    feedback:
-      "Identitet, fantasi og menneskesind er centrale temaer i Ovartacis kunst og fortællinger.",
-    reflection: "Hvordan kan kunst vise tanker og følelser uden ord?",
   },
 
   {
@@ -77,21 +72,7 @@ const questions = [
     image: "img/hængedukke.png",
     feedback:
       "Derfor fandt Ovartaci en kreativ løsning ved at lave bevægelige papirdukker, som kunne hænges op i rummet.",
-    reflection: "Kan begrænsninger nogle gange føre til nye kreative idéer?",
   },
-
-  {
-    chapter: "Objekter",
-    question: "Hvordan blev Ovartacis “rygefantomer” brugt?",
-    answers: ["Som legetøj", "Til at ryge gennem", "Som lamper"],
-    correctIndex: 1,
-    image: "img/rygefantomer.png",
-    feedback:
-      "Tobakken blev placeret i figurens hoved, mens røgen blev suget gennem benene og fødderne.",
-    reflection:
-      "Hvordan kan almindelige objekter få nye betydninger gennem fantasi?",
-  },
-
   {
     chapter: "Frihed",
     question: "Hvad drømte Ovartaci om at bygge?",
@@ -103,6 +84,15 @@ const questions = [
       "Ovartaci byggede en helikopter i fuld størrelse, men den kom aldrig til at flyve. Projektet viser hans store fantasi og fascination af teknik og frihed.",
     reflection: "Hvad tror du drømmen om at flyve symboliserede for Ovartaci?",
   },
+  {
+    chapter: "Objekter",
+    question: "Hvordan blev Ovartacis “rygefantomer” brugt?",
+    answers: ["Som legetøj", "Til at ryge gennem", "Som lamper"],
+    correctIndex: 1,
+    image: "img/rygefantomer.png",
+    feedback:
+      "Tobakken blev placeret i figurens hoved, mens røgen blev suget gennem benene og fødderne.",
+  },
 
   {
     chapter: "Bevægelse",
@@ -113,7 +103,6 @@ const questions = [
     feedbackImage: "img/cykel.png",
     feedback:
       "At kunne cykle rundt gav Ovartaci en følelse af frihed og selvstændighed.",
-    reflection: "Hvorfor tror du bevægelse kan føles som frihed?",
   },
 
   {
@@ -129,8 +118,6 @@ const questions = [
     image: "img/amputation.png",
     feedback:
       "Ovartaci dyppede den i rød maling for at sikre, at lægerne ikke kunne sy den på igen. Episoden viser, hvor stærkt han ønskede fysisk og psykisk forvandling.",
-    reflection:
-      "Hvordan tror du kroppen kan hænge sammen med identitet og selvopfattelse?",
   },
 
   {
@@ -203,8 +190,7 @@ function renderQuestion() {
 
   questionText.textContent = currentQuestion.question;
   questionImage.src = currentQuestion.image;
-feedbackImage.src =
-  currentQuestion.feedbackImage || currentQuestion.image;
+  feedbackImage.src = currentQuestion.feedbackImage || currentQuestion.image;
 
   answersContainer.innerHTML = "";
 
@@ -268,7 +254,14 @@ function handleAnswer(selectedIndex) {
     currentQuestion.answers[currentQuestion.correctIndex]
   }`;
 
-  reflectionText.textContent = currentQuestion.reflection;
+  const reflectionCard = document.querySelector(".reflection-card");
+
+  if (currentQuestion.reflection) {
+    reflectionCard.style.display = "block";
+    reflectionText.textContent = currentQuestion.reflection;
+  } else {
+    reflectionCard.style.display = "none";
+  }
 
   // Vis feedback screen
   showScreen("feedback");
@@ -364,6 +357,8 @@ restartBtn.addEventListener("click", () => {
   nameError.textContent = "";
   showScreen("start");
 });
+
+
 
 const backgroundVideo = document.querySelector(".background-video");
 

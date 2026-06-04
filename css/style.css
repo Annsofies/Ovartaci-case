@@ -224,9 +224,9 @@ body {
   align-items: center;
   justify-content: flex-start;
 
-  padding-top: 60px;
+  padding-top: 34px;
 
-  padding-bottom: 360px;
+  padding-bottom: 300px;
 }
 
 .content-card {
@@ -235,7 +235,7 @@ body {
   text-align: center;
   position: relative;
   z-index: 2;
-  margin-top: 30px;
+  margin-top: 6px;
 }
 
 .overtitel {
@@ -628,8 +628,8 @@ body {
 
   opacity: 0;
   transform: translateY(18px);
-  animation: reflectionEnter 0.8s ease forwards;
-  animation-delay: 1.8s;
+  animation: reflectionEnter 1.9s ease forwards;
+  animation-delay: 2, 6s;
 }
 
 .reflection-card::before {
@@ -717,7 +717,6 @@ body {
   bottom: 42px;
   z-index: 30;
 }
-
 /* ============================= */
 /* SCOREBOARD */
 /* ============================= */
@@ -726,6 +725,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 32px;
+
   background-image: url("../img/scoreboard.png");
   background-size: cover;
   background-position: center;
@@ -736,52 +736,60 @@ body {
   position: relative;
   z-index: 2;
 
-  width: min(900px, 92vw);
-  max-height: 88vh;
-
-  padding: 38px;
+  width: min(980px, 92vw);
+  height: 88vh;
+  padding: 24px 42px;
 
   border-radius: 34px;
 
-  background: rgba(244, 240, 232, 0.72);
+  background: rgba(244, 240, 232, 0.74);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
 
   text-align: center;
 
   display: flex;
   flex-direction: column;
-
   overflow: hidden;
 
   animation: scoreCardEnter 0.7s ease both;
 }
 
+.score-card .overtitel {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
 .score-card h2 {
-  font-size: clamp(44px, 5vw, 72px);
+  font-size: clamp(40px, 4.4vw, 62px);
   color: var(--dark);
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 }
 
 #finalScore {
-  font-size: 25px;
+  font-size: 22px;
   font-weight: bold;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
   color: var(--purple);
 }
 
+/* SCORELISTE */
+
 .score-list {
   list-style: none;
-  overflow-y: auto;
+
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 26px;
+  gap: 8px;
+
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+
+  margin-bottom: 12px;
   padding-right: 6px;
 }
 
@@ -789,26 +797,91 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 62px;
-  padding: 14px 22px;
-  border-radius: 18px;
-  background: var(--white);
+
+  min-height: 42px;
+  padding: 8px 18px;
+
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.86);
   color: var(--dark);
-  font-size: 22px;
+
+  font-size: 18px;
   font-weight: bold;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+/* ============================= */
+/* AFSLUTTENDE REFLEKSION */
+/* ============================= */
+
+.ending-reflection-card {
+  margin: 10px 0 14px;
+
+  padding: 14px 20px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.22);
+
+  min-height: auto;
+
+  text-align: center;
 }
 
-.score-list li:hover {
-  transform: scale(1.02);
-  background: var(--grey);
+.ending-reflection-card .reflection-label {
+  display: block;
+
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+
+  color: var(--wine);
+
+  margin-bottom: 12px;
 }
+
+.reflection-inner {
+  display: flex;
+  gap: 18px;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.ending-reflection-card h3 {
+  font-size: 23px;
+  line-height: 1.25;
+
+  font-style: italic;
+  font-weight: 500;
+
+  color: var(--dark);
+
+  margin: 0 auto 6px;
+}
+
+.ending-reflection-card p {
+  font-size: 16px;
+  line-height: 1.35;
+
+  color: rgba(21, 16, 24, 0.75);
+
+  margin: 0;
+}
+
+/* KNAP */
 
 .score-card .primary-btn {
   align-self: center;
   margin-top: auto;
+
+  min-width: 260px;
+  min-height: 70px;
+
+  font-size: 26px;
 }
 
 /* ============================= */
@@ -995,5 +1068,46 @@ body {
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+}
+
+@media (max-height: 850px) {
+  .alias-screen {
+    padding-top: 18px;
+  }
+
+  .content-card {
+    margin-top: 0;
+  }
+
+  .overtitel {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .content-card h2 {
+    font-size: 56px;
+    margin-bottom: 12px;
+  }
+
+  #aliasText {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  #nameInput {
+    height: 72px;
+    margin-bottom: 10px;
+  }
+
+  #saveNameBtn {
+    min-height: 68px;
+    font-size: 26px;
+    padding: 18px 48px;
+    margin-top: 8px;
+  }
+
+  .keyboard {
+    bottom: 0;
   }
 }
