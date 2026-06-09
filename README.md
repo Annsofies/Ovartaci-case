@@ -47,7 +47,7 @@ Vores løsning består af en quizbaseret prototype, som skal engagere unge museu
 
 ## 4. W3C-validering
 
-Projektets HTML- og CSS-filer er begge valideret. Validering blev brugt løbende for at bla. mindske fejl.
+Projektets HTML- og CSS-filer er begge valideret. Validering blev brugt løbende for at bl.a. mindske fejl.
 
 #### index.html <p>valideret igennem: W3C HTML Validator</p>
 
@@ -73,11 +73,11 @@ Vi havde også en enkelt fejl i vores css - hvor vi havde kommet til at sætte e
 
 ### Strukturforklaring
 
-Vi har valgt denne struktur hvor hele quizen er samlet i én `index.html` med flere sektioner (screens), fordi vi syndes det gør det nemmere at styre navigationen med `js` efterfølgende.
+Vi har valgt denne struktur hvor hele quizen er samlet i én `index.html` med flere sektioner (screens), fordi vi synes det gør det nemmere at styre navigationen med `js` efterfølgende.
 
 Hver section repræsenterer en “side” i quizzen, som vises og skjules dynamisk. På den måde har vi sluppet for at skulle oprette og skifte mellem flere html-filer.
 
-Vi har valgt at opdele `js` i 2 filer, hvor keyboardet har fået sin egen side, da vi syndes det gav et bedre overblik for os.
+Vi har valgt at opdele `js` i 2 filer, hvor keyboardet har fået sin egen side, da vi synes det gav et bedre overblik for os.
 
 
 
@@ -90,7 +90,7 @@ Vi har valgt at opdele `js` i 2 filer, hvor keyboardet har fået sin egen side, 
 | ```js``` mappe, indeholder 2 js filer          |   |
 | ```script.js```  | ```script.js``` styrer hele quiz  funktionaliteten og er vores primær quizlogik. Den indeholder spørgsmålene, håndterer navigation mellem skærme og registrerer brugerens svar og score. <br></br> Derudover bruges ```script.js``` til at opdatere progress bar, vise feedback, gemme og hente data fra localStorage samt generere scoreboardet dynamisk.                |
 | ```alias.js```   | ```alias.js``` styrer alias-siden og tastaturet. Den håndterer indtastning af tekst i inputfeltet, inklusive bogstaver, mellemrum og backspace. Derudover kan brugeren skifte mellem store og små bogstaver med shift-knappen. <br></br> Filen gør det muligt at taste på et bogstav og så kommer det frem i inputfeltet - da tasteturet skal være på en touchskærm og ikke skal bruges som et almindeligt tastatur. <br></br>              |
-| `video` mappe som indeholder 1 ekelt video     |
+| `video` mappe som indeholder 1 enkelt video     |
 | ovi-video.mp4   |   Video                            | 
 | ```img``` mappe som indeholder alle vores billeder       |              |
 | alias.png        | Billede                        |
@@ -102,7 +102,7 @@ Vi har valgt at opdele `js` i 2 filer, hvor keyboardet har fået sin egen side, 
 | ovi-hehe.png     | Billede                        |
 | ovi-smile.png    | Billede                        |
 | ovi.png          | Billede                        |
-| scorreboard.png  | Billede                        |
+| scoreboard.png  | Billede                        |
 
 
     ops. der er kommet en del flere billeder til, men dette er blot for at vise strukturen.
@@ -111,7 +111,7 @@ Vi har valgt at opdele `js` i 2 filer, hvor keyboardet har fået sin egen side, 
 
 ### Kommentarer i koden
 
-Vi har lavet en del kommentar i , både `html`, `css` og `js`. Kommentarne skal hjælpe os med at forstå og huske koden bedre. Kommentarne er skrevet på dansk, da vi mente det ville give mest mening for os.
+Vi har lavet en del kommentar i , både `html`, `css` og `js`. Kommentarerne skal hjælpe os med at forstå og huske koden bedre. Kommentarne er skrevet på dansk, da vi mente det ville give mest mening for os.
 
 <br></br>
 
@@ -244,7 +244,7 @@ function insertAtCursor(text) {
 
 ## 10. Anvendelse af localStorage
 
-Vi har i protjektet anvendt localStorge til at gemme userens navn (alias) og dens scorre.
+Vi har i projektet anvendt localStorge til at gemme brugerens navn (alias) og deres score.
 
 Et eksempel vil være til at finde i vores `script.js`:
 
@@ -270,7 +270,7 @@ Derefter sorteres scorerne fra højeste til laveste, og de 8 bedste resultater g
 ## 11. Dynamisk feedback
 
 Quizzen giver dynamisk feedback baseret på brugerens svar.
-Feedbacken vises på en Korrekt eller Forkert side efter hver spørgsmål - så man hele tiden for feedback på hvordan man klare den.
+Feedbacken vises på en korrekt- eller forkert-side efter hver spørgsmål - så man hele tiden får feedback på hvordan man klarer sig.
 
 ```
 // Håndterer svaret
@@ -322,9 +322,9 @@ function handleAnswer(selectedIndex) {
 
 Projektet er blevet lavet igennem GitHub-samarbejde.
 
-- Vi har begge lavedt commits løbende.
+- Vi har begge lavet commits løbende.
 - Har den ene haft problemer med dele af koden, har det hurtigt kunne blive løst, fordi vi har lavet mange commits undervejs, som vi har kunne gå tilbage til.
-- Vi har været gode til at dele tingende op, så vi begge har haft mulighed for at kode.
+- Vi har været gode til at dele tingene op, så vi begge har haft mulighed for at kode.
 
 <br></br>
 
@@ -332,7 +332,7 @@ Projektet er blevet lavet igennem GitHub-samarbejde.
 
 #### Hvorfor har vi valgt quizformat?
 
-Vi havde mange forskællige muligheder oppe og vende, men ende med quizzen, fordi:
+Vi havde mange forskellige muligheder oppe og vende, men ende med quizzen, fordi:
 
 - Skaber aktiv deltagelse
 - Understøtter læring gennem interaktion
@@ -340,11 +340,11 @@ Vi havde mange forskællige muligheder oppe og vende, men ende med quizzen, ford
 - Passer til unge brugeres digitale vaner
 - Vi tænkte det var en udfordrende opgave, som vi begge to ikke havde prøvet at kode før
 
-Det har værert svært at kode, både fordi vi kun har værert to i gruppen med så meget viden indenfor kodning. Men også fordi det er noget vi ikke har gjordt før, så der skulle læses og forståes en del. Vi har gemt og slettet mange gange, vi har også gået tilbage til gamle commits og startet derfra igen. Det har værert udfordrende men sjovt.
+Det har været svært at kode, både fordi vi kun har været to i gruppen med så meget viden inden for kodning. Men også fordi det er noget vi ikke har gjort før, så der skulle læses og forståes en del. Vi har gemt og slettet mange gange, vi har også gået tilbage til gamle commits og startet derfra igen. Det har været udfordrende men sjovt.
 
 <br></br>
 
-## 14. Konklution
+## 14. Konklusion
 
-Vores projektet viser, hvordan en interaktiv digital løsning kan skabe mere engagement og aktiv deltagelse hos besøgende på Museum Ovartaci.
-Ved hjælp af `html`, `css`, `js` og `localStorage` har vi udviklet en quizbaseret prototype med dynamisk feedback og godt brugerflow. Gennem OOUX, ORCA og UX-principper har vi skabt en løsning, der kobler storytelling og læring sammen i museummet.
+Vores projekt viser, hvordan en interaktiv digital løsning kan skabe mere engagement og aktiv deltagelse hos besøgende på Museum Ovartaci.
+Ved hjælp af `html`, `css`, `js` og `localStorage` har vi udviklet en quizbaseret prototype med dynamisk feedback og godt brugerflow. Gennem OOUX, ORCA og UX-principper har vi skabt en løsning, der kobler storytelling og læring sammen i museet.
